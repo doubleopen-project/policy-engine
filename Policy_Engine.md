@@ -2,7 +2,7 @@
 
 The purpose of the policy engine component is to issue warnings, errors and/or tasks based on comparing the license analysis of a codebase to pre-defined sets of rules and exceptions (**policy elements**).
 
-In the context of the PoC, policy elements can be both **repository-based** and **universal** (i.e. applied to any repositor).
+In the context of the PoC, policy elements can be both **repository-based** and **universal** (i.e. applied to any repository).
 
 ## Universal policy elements
 
