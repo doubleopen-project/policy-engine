@@ -16,13 +16,13 @@ Contexts are specified, i.e. named and listed, in a universal policy document. T
 
 License allowlists are lists of SPDX license expressions for licenses that upon discovery in license analysis, will not create a _rule violation_ and an ensuing error, warning or similar. License allowlists can but do not have to be context-specific, i.e. there can be allowlists applicable only to one or more contexts.
 
-allowlists can be overridden on the repository level on a licence-by-license basis.
+Allowlists can be overridden on the repository level on a licence-by-license basis.
 
 ### License denylists
 
 License blaclists are lists of SPDX license expressions for licenses that upon discovery in license analysis, _will_ create an error, warning or similar. While the use of _allowlists_ should be encouraged as the basis of any policy element setup, denylists may have their place when, for example, certain rule violations need to be emphasized or otherwise treated differently. For example, where a license allowlist violation may be defined to create a mere warning, a denylist violation can be defined to create an error that immediately fails the build in a continuous integration context.
 
-denylists can be overridden on the repository level on a licence-by-license basis.
+Denylists can be overridden on the repository level on a licence-by-license basis.
 
 ### Rule violation triggers
 
