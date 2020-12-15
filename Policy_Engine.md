@@ -144,3 +144,44 @@ applications: # Application-level conf
       - path: "beta/tests"
         reason: "Only used for testing. Not included in released application"
 ```
+
+### Policy config specification
+
+```yaml
+# List of licenses that have been either approved or disapproved per context.
+# If a license is not on the list, the Policy Engine will emit an error that
+# the license should be handled.
+licenses:
+  # SPDX Identifier of the license.
+  - spdx_id: "MIT":
+    # Contexts that allow using the above license. Contexts are created by just
+    # naming a new context here.
+    allowed_contexts:
+      - context: "saas"
+      - context: "consumer software"
+      - context: "consumer device"
+  - spdx_id: "GPL-2.0":
+    allowed_contexts:
+      - context: "saas"
+    denied_contexts:
+      - context: "consumer software"
+        # Can be used to describe why the license is denied in this context.
+        # The Policy Engine will report the description when a violation of the 
+        # policy is encountered.
+        description: "do x to get this approved"
+      - context: "consumer"
+        description: "very not good"
+  - spdx_id: "Apache-2.0"
+    allowed_contexts:
+     - context: "all"
+# Resolutions used to provide exceptions for license policy violations.
+resolutions:
+  # The resolution is used if the violation is found in package named here.
+  - package: "package-1.52.2"
+    # In which context is the resolution used in.
+    context: "consumer software"
+    spdx_id: "GPL-2.0"
+    description: >
+      "Package-1.52.2 is always used in a way x that enables us to
+      use it despite being in violation of the policy."
+```
